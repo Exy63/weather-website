@@ -11,10 +11,10 @@ const forecast = (address, callback) => {
     .get(url)
     .then(function ({ data }) {
       // handle success
-      const { temperature, feelslike, weather_descriptions } = data.current;
+      const { temperature, feelslike, weather_descriptions, humidity } = data.current;
 
       callback(
-        `${weather_descriptions[0]}. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out.`
+        `${weather_descriptions[0]}. It is currently ${temperature} degrees out. It feels like ${feelslike} degrees out. Humidity is ${humidity}%`
       );
     })
     .catch(function (e) {
